@@ -1,5 +1,8 @@
 const axios = require('axios');
 
+const sessionToken = 'T6CSLvnDS89Fc1RX0PyKb1+QV5re2KqFsEzYUxg8k1k=';
+const appKey = 'IjPXjMxjhphGBjs3';
+
 const requestEventTypes = async () => {
 
   try {
@@ -8,14 +11,19 @@ const requestEventTypes = async () => {
       id: 1,
       method: 'SportsAPING/v1.0/listEventTypes',
       'params': {
-        'filter': {}
+        'filter': {
+          'eventTypeIds': [
+            '1'
+          ]
+        },
+        'maxResults': '10'
       }
     }, {
       headers: {
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*',
-        'X-Application': 'IjPXjMxjhphGBjs3',
-        'X-Authentication': 'nL8FzlayZd8kegWJ+9P9LN1j4e/Pyp0Dx1XlpFqlJlk='
+        'X-Application': appKey,
+        'X-Authentication': sessionToken
       },
     });
 
@@ -44,12 +52,12 @@ const requestCompetitionsForEventType = async (eventTypeId) => {
       headers: {
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*',
-        'X-Application': 'IjPXjMxjhphGBjs3',
-        'X-Authentication': 'nL8FzlayZd8kegWJ+9P9LN1j4e/Pyp0Dx1XlpFqlJlk='
+        'X-Application': appKey,
+        'X-Authentication': sessionToken
       },
     });
 
-    console.log(response.data.result);
+    return response.data.result;
   } catch (error) {
     console.error(error);
   }
@@ -72,49 +80,77 @@ const requestEventListForType = async () => {
       headers: {
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*',
-        'X-Application': 'IjPXjMxjhphGBjs3',
-        'X-Authentication': 'nL8FzlayZd8kegWJ+9P9LN1j4e/Pyp0Dx1XlpFqlJlk='
+        'X-Application': appKey,
+        'X-Authentication': sessionToken
       },
     });
 
-    console.log(response.data.result);
+    return response.data.result;
   } catch (error) {
     console.error(error);
   }
 };
 
-const requestMarketsForEvent = async () => {
+const requestEventListForCompetition = async (competitionId) => {
+  try {
+    const response = await axios.post('https://api.betfair.com/exchange/betting/json-rpc/v1', {
+      jsonrpc: '2.0',
+      id: 1,
+      method: 'SportsAPING/v1.0/listEvents',
+      'params': {
+        'filter': {
+          'competitionsIds': [
+            competitionId
+          ]
+        }
+      }
+    }, {
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+        'X-Application': appKey,
+        'X-Authentication': sessionToken
+      },
+    });
+
+    return response.data.result;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+const requestMarketsForEvent = async (eventId) => {
   try {
     const response = await axios.post('https://api.betfair.com/exchange/betting/json-rpc/v1', {
       jsonrpc: '2.0',
       id: 1,
       method: 'SportsAPING/v1.0/listMarketCatalogue',
-      "params": {
-        "filter": {
-          "eventIds": [
-            "30357715"
+      'params': {
+        'filter': {
+          'eventIds': [
+            eventId
           ]
         },
-        "maxResults": "200",
-        "marketProjection": [
-          "COMPETITION",
-          "EVENT",
-          "EVENT_TYPE",
-          "RUNNER_DESCRIPTION",
-          "RUNNER_METADATA",
-          "MARKET_START_TIME"
+        'maxResults': '10',
+        'marketProjection': [
+          'COMPETITION',
+          'EVENT',
+          'EVENT_TYPE',
+          'RUNNER_DESCRIPTION',
+          'RUNNER_METADATA',
+          'MARKET_START_TIME'
         ]
       },
     }, {
       headers: {
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*',
-        'X-Application': 'IjPXjMxjhphGBjs3',
-        'X-Authentication': 'nL8FzlayZd8kegWJ+9P9LN1j4e/Pyp0Dx1XlpFqlJlk='
+        'X-Application': appKey,
+        'X-Authentication': sessionToken
       },
     });
 
-    console.log(response.data);
+    return response.data.result;
   } catch (error) {
     console.error(error);
   }
@@ -126,33 +162,33 @@ const requestMarketBookForMarket = async () => {
       jsonrpc: '2.0',
       id: 1,
       method: 'SportsAPING/v1.0/listMarketBook',
-      "params": {
-        "marketIds": ["1.180662765"],
-        "priceProjection": {
-          "priceData": ["EX_BEST_OFFERS", "EX_TRADED"],
-          "virtualise": "true"
+      'params': {
+        'marketIds': ['1.180662765'],
+        'priceProjection': {
+          'priceData': ['EX_BEST_OFFERS', 'EX_TRADED'],
+          'virtualise': 'true'
         }
       }
     }, {
       headers: {
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*',
-        'X-Application': 'IjPXjMxjhphGBjs3',
-        'X-Authentication': 'nL8FzlayZd8kegWJ+9P9LN1j4e/Pyp0Dx1XlpFqlJlk='
+        'X-Application': appKey,
+        'X-Authentication': sessionToken
       },
     });
 
-    console.log(response.data.result);
+    return response.data.result;
   } catch (error) {
     console.error(error);
   }
 };
-
 
 module.exports = {
   requestEventTypes,
   requestEventListForType,
   requestMarketsForEvent,
   requestCompetitionsForEventType,
-  requestMarketBookForMarket
+  requestMarketBookForMarket,
+  requestEventListForCompetition
 };
