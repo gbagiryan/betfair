@@ -1,10 +1,9 @@
 const axios = require('axios');
 
-const sessionToken = 'T6CSLvnDS89Fc1RX0PyKb1+QV5re2KqFsEzYUxg8k1k=';
+const sessionToken = 'dVdPhZr9mFP/vlNViYgB4+IRRuTtx33fZhOPlA35wFA=';
 const appKey = 'IjPXjMxjhphGBjs3';
 
 const requestEventTypes = async () => {
-
   try {
     const eventTypes = await axios.post('https://api.betfair.com/exchange/betting/json-rpc/v1', {
       jsonrpc: '2.0',
@@ -13,7 +12,7 @@ const requestEventTypes = async () => {
       'params': {
         'filter': {
           'eventTypeIds': [
-            '1'
+            '6'
           ]
         },
         'maxResults': '10'
@@ -56,7 +55,6 @@ const requestCompetitionsForEventType = async (eventTypeId) => {
         'X-Authentication': sessionToken
       },
     });
-
     return response.data.result;
   } catch (error) {
     console.error(error);
@@ -156,17 +154,17 @@ const requestMarketsForEvent = async (eventId) => {
   }
 };
 
-const requestMarketBookForMarket = async () => {
+const requestMarketBookForMarket = async (marketId) => {
   try {
     const response = await axios.post('https://api.betfair.com/exchange/betting/json-rpc/v1', {
       jsonrpc: '2.0',
       id: 1,
       method: 'SportsAPING/v1.0/listMarketBook',
-      'params': {
-        'marketIds': ['1.180662765'],
-        'priceProjection': {
-          'priceData': ['EX_BEST_OFFERS', 'EX_TRADED'],
-          'virtualise': 'true'
+      "params": {
+        "marketIds": [marketId],
+        "priceProjection": {
+          "priceData": ["EX_BEST_OFFERS", "EX_TRADED"],
+          "virtualise": "true"
         }
       }
     }, {
