@@ -11,12 +11,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3ad881be-e00f-4331-a688-8a3158a275ae" name="Default Changelist" comment="marketBooks">
-      <change afterPath="$PROJECT_DIR$/RabbitReceiver.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RabbitReceiver.js" beforeDir="false" afterPath="$PROJECT_DIR$/RabbitReceiver.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/socketConnection.js" beforeDir="false" afterPath="$PROJECT_DIR$/socketConnection.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +68,7 @@
       <workItem from="1615979746200" duration="10172000" />
       <workItem from="1616048000613" duration="27591000" />
       <workItem from="1616134032399" duration="12054000" />
-      <workItem from="1616393717860" duration="4689000" />
+      <workItem from="1616393717860" duration="5169000" />
     </task>
     <task id="LOCAL-00001" summary="objComposer">
       <created>1616079007319</created>
@@ -101,7 +98,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616162902540</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="marketBooks">
+      <created>1616408731257</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1616408731257</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -130,10 +134,10 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="580" y="185" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1616149962713" />
-    <state x="392" y="163" key="Vcs.Push.Dialog.v2" timestamp="1616162904804">
+    <state x="392" y="163" key="Vcs.Push.Dialog.v2" timestamp="1616408733956">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="392" y="163" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1616162904804" />
+    <state x="392" y="163" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1616408733956" />
     <state x="625" y="164" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog" timestamp="1616053358115">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
