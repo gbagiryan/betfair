@@ -17,7 +17,7 @@ const connectToFeed = () => {
 
   /*	Send authentication message */
 
-  client.write('{"op": "authentication", "appKey": "IjPXjMxjhphGBjs3", "session": "nL8FzlayZd8kegWJ+9P9LN1j4e/Pyp0Dx1XlpFqlJlk=}"\r\n');
+  client.write('{"op": "authentication", "appKey": "IjPXjMxjhphGBjs3", "session": "dVdPhZr9mFP/vlNViYgB4+IRRuTtx33fZhOPlA35wFA=}"\r\n');
 
   /*	Subscribe to order/market stream */
   client.write('{"op":"orderSubscription","orderFilter":{"includeOverallPosition":false,"customerStrategyRefs":["betstrategy1"],"partitionMatchedByStrategyRef":true},"segmentationEnabled":true}\r\n');
